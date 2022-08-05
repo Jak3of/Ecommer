@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_navbar">#3E3E7C</color>
-    <color name="navbar_color">#ffffff</color>
-    <color name="primary_variant">#3C3E73</color>
+    <color name="background_navbar">#363739</color>
+    <color name="navbar_color">#212121</color>
+    <color name="primary_variant">#363739</color>
+
 </resources>

@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/borders.xml" value="0.226" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.1835" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_borders.xml" value="0.332" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_corner.xml" value="0.2725" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout-v31/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_about_us.xml" value="0.265625" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_category.xml" value="0.1037037037037037" />
-        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_home.xml" value="0.1037037037037037" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_map.xml" value="0.1037037037037037" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/navbar.xml" value="0.33" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/menu/main_menu.xml" value="0.18" />

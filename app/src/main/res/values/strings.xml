@@ -2,4 +2,7 @@
     <string name="app_name">Ecommers</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_background_description">Nike</string>
+    <string name="home_our_products">Our Products</string>
+
 </resources>
