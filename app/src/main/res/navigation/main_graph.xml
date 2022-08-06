@@ -13,6 +13,7 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="pe.com.ecommers.CategoryFragment"
+        android:background="@drawable/ic_pro_frag_bg_category"
         android:label="category"
         tools:layout="@layout/fragment_category" />
 

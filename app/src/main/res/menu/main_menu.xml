@@ -10,6 +10,7 @@
         android:icon="@drawable/ic_baseline_category_24"
         android:id="@+id/categoryFragment"
         android:title="Category"
+        android:background="@drawable/ic_pro_frag_bg_category"
         />
     <item
         android:icon="@drawable/ic_baseline_map_24"
