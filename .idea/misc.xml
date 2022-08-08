@@ -7,26 +7,17 @@
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_baseline_category_24.xml" value="0.1835" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_borders.xml" value="0.332" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_corner.xml" value="0.2725" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/drawable/ic_corner_icon.xml" value="0.2815" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout-v31/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_about_us.xml" value="0.265625" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_category.xml" value="0.27760416666666665" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_home.xml" value="0.18820224719101122" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_map.xml" value="0.1037037037037037" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/fragment_product_details.xml" value="0.33" />
+        <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/item_product.xml" value="0.1" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/layout/navbar.xml" value="0.33" />
         <entry key="..\:/AplicacionAndroidStudio/Ecommer/app/src/main/res/menu/main_menu.xml" value="0.18" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1775" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/drawable/ic_baseline_contact_support_24.xml" value="0.1585" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1585" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/drawable/ic_baseline_read_more_24.xml" value="0.1585" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1585" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/activity_main.xml" value="0.30572916666666666" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/fragment_about_us.xml" value="0.30572916666666666" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/fragment_category.xml" value="0.30572916666666666" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/fragment_home.xml" value="0.25092592592592594" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/fragment_map.xml" value="0.30572916666666666" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/item_product.xml" value="0.3046875" />
-        <entry key="..\:/Users/nelso/Documents/GitHub/Ecommer/app/src/main/res/layout/navbar.xml" value="0.30572916666666666" />
       </map>
     </option>
   </component>

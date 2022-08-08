@@ -5,7 +5,7 @@
     <string name="home_background_description">Nike</string>
     <string name="home_our_products">Our Products</string>
     <string-array name="categorys">
-        <item >Seleccione</item>
+        <item>Seleccione</item>
         <item>Ropa Para Hombre</item>
         <item>Ropa para Mujer</item>
         <item>Electrodomesticos</item>
