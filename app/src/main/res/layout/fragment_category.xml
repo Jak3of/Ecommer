@@ -31,7 +31,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="587dp"
             android:layout_marginTop="76dp"
             android:padding="20dp"
             android:scrollbars="none"
@@ -40,8 +40,9 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recicly_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 tools:listitem="@layout/item_product"
 
                 >

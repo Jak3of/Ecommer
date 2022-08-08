@@ -1,10 +1,16 @@
 package pe.com.ecommers
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,10 +40,30 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_category, container, false)
+        val recyclerViewProduct = view.findViewById<RecyclerView>(R.id.recicly_view)
+        recyclerViewProduct.layoutManager = LinearLayoutManager(context)
+        recyclerViewProduct.setHasFixedSize(true)
+        getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
 
-
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        return view
     }
+
+    private fun getProductData(callback: (List<ProductModel> ) -> Unit){
+        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+        val call = serviceGenerator.getProducts()
+        call.enqueue(object : Callback<List<ProductModel>> {
+            override fun onResponse(call: Call<List<ProductModel>>, response: Response<List<ProductModel>>) {
+                val products = response.body()
+                return callback(products!!)
+            }
+
+            override fun onFailure(call: Call<List<ProductModel>>, t: Throwable) {
+                Log.d("HomeFragment", "Error: ${t.message}")
+            }
+        })
+    }
+
 
     companion object {
         /**
