@@ -6,11 +6,9 @@
     <string name="home_our_products">Our Products</string>
     <string-array name="categorys">
         <item>Seleccione</item>
-        <item>Ropa Para Hombre</item>
         <item>Ropa para Mujer</item>
-        <item>Electrodomesticos</item>
-        <item>Tecnologia</item>
-        <item>Libros</item>
-        <item>Juguetes</item>
+        <item>Ropa Para Hombre</item>
+        <item>Ropa para Niños</item>
+
     </string-array>
 </resources>

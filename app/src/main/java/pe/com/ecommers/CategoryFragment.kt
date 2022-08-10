@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -44,7 +46,25 @@ class CategoryFragment : Fragment() {
         val recyclerViewProduct = view.findViewById<RecyclerView>(R.id.recicly_view)
         recyclerViewProduct.layoutManager = LinearLayoutManager(context)
         recyclerViewProduct.setHasFixedSize(true)
-        getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
+
+
+        val spn = view.findViewById<Spinner>(R.id.spinner_category)
+
+        spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val entero :String= position.toString()
+                if (position.equals(0)){
+                    getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
+                } else{
+                    getProductDataCategory ({ products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) },entero)
+                }
+
+            } // to close the onItemSelected
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
+            }
+        }
 
         return view
     }
@@ -60,6 +80,28 @@ class CategoryFragment : Fragment() {
 
             override fun onFailure(call: Call<List<ProductModel>>, t: Throwable) {
                 Log.d("HomeFragment", "Error: ${t.message}")
+            }
+        })
+    }
+
+    private fun getProductDataCategory(callback: (List<ProductModel> ) -> Unit,cate:String){
+        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+        val call = serviceGenerator.getProducts()
+        call.enqueue(object : Callback<List<ProductModel>> {
+            override fun onResponse(call: Call<List<ProductModel>>, response: Response<List<ProductModel>>) {
+                var products = response.body()
+                val productcategory: MutableList<ProductModel> = arrayListOf()
+                products!!.forEach{
+                    if (it.id_category.equals(cate)){
+                        productcategory.add(it)
+                    }
+                }
+                products = productcategory.toList()
+                return callback(products!!)
+            }
+
+            override fun onFailure(call: Call<List<ProductModel>>, t: Throwable) {
+                Log.d("CategoryFragment", "Error: ${t.message}")
             }
         })
     }

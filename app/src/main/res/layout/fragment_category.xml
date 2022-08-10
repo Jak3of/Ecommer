@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="9dp"
@@ -31,18 +31,23 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="587dp"
-            android:layout_marginTop="76dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="165dp"
             android:padding="20dp"
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner">
+
+            app:layout_constraintTop_toBottomOf="@+id/spinner_category"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recicly_view"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="wrap_content"
                 tools:listitem="@layout/item_product"
 
                 >
