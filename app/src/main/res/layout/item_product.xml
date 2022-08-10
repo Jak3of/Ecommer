@@ -17,7 +17,7 @@
         android:layout_margin="16dp"
 
         android:contentDescription="image"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_home_brackground_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,16 +40,14 @@
             android:id="@+id/txtproduct_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
             android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-black"
             android:hint="nombre"
-            android:text="producto"
-
+            android:text="product"
             android:textColor="#212121"
             android:textSize="23dp"
             android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
