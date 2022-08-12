@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -43,37 +45,21 @@ class CategoryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_category, container, false)
-        val recyclerViewProduct = view.findViewById<RecyclerView>(R.id.recicly_view)
-        recyclerViewProduct.layoutManager = LinearLayoutManager(context)
-        recyclerViewProduct.setHasFixedSize(true)
 
-
-        val spn = view.findViewById<Spinner>(R.id.spinner_category)
-
-        spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                val entero :String= position.toString()
-                if (position.equals(0)){
-                    getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
-                } else{
-                    getProductDataCategory ({ products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) },entero)
-                }
-
-            } // to close the onItemSelected
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                getProductData { products : List<ProductModel> -> recyclerViewProduct.adapter = ProductAdapter(products) }
-            }
-        }
 
         return view
     }
 
-    private fun getProductData(callback: (List<ProductModel> ) -> Unit){
+
+
+    private fun getProductData(callback: (List<ProductModel>) -> Unit) {
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
         val call = serviceGenerator.getProducts()
         call.enqueue(object : Callback<List<ProductModel>> {
-            override fun onResponse(call: Call<List<ProductModel>>, response: Response<List<ProductModel>>) {
+            override fun onResponse(
+                call: Call<List<ProductModel>>,
+                response: Response<List<ProductModel>>
+            ) {
                 val products = response.body()
                 return callback(products!!)
             }
@@ -84,15 +70,18 @@ class CategoryFragment : Fragment() {
         })
     }
 
-    private fun getProductDataCategory(callback: (List<ProductModel> ) -> Unit,cate:String){
+    private fun getProductDataCategory(callback: (List<ProductModel>) -> Unit, cate: String) {
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
         val call = serviceGenerator.getProducts()
         call.enqueue(object : Callback<List<ProductModel>> {
-            override fun onResponse(call: Call<List<ProductModel>>, response: Response<List<ProductModel>>) {
+            override fun onResponse(
+                call: Call<List<ProductModel>>,
+                response: Response<List<ProductModel>>
+            ) {
                 var products = response.body()
                 val productcategory: MutableList<ProductModel> = arrayListOf()
-                products!!.forEach{
-                    if (it.id_category.equals(cate)){
+                products!!.forEach {
+                    if (it.id_category.equals(cate)) {
                         productcategory.add(it)
                     }
                 }
@@ -106,6 +95,64 @@ class CategoryFragment : Fragment() {
         })
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val spn = view.findViewById<Spinner>(R.id.spinner_category)
+        val recyclerViewProduct = view.findViewById<RecyclerView>(R.id.recicly_view)
+        recyclerViewProduct.layoutManager = LinearLayoutManager(context)
+        recyclerViewProduct.setHasFixedSize(true)
+
+        val nav: NavController = Navigation.findNavController(view)
+        spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val entero: String = position.toString()
+
+                var adaptadorrecivido: ProductAdapter
+
+                if (position.equals(0)) {
+                    getProductData { produs: List<ProductModel> ->
+                        adaptadorrecivido = ProductAdapter(produs)
+                        recyclerViewProduct.adapter = adaptadorrecivido
+                        adaptadorrecivido.onItemClick = {
+                            val action =
+                                CategoryFragmentDirections.actionCategoryFragmentToProductDetailsFragment(it )
+                            nav.navigate(action)
+                        }
+                    }
+
+
+                } else {
+                    getProductDataCategory({ produs: List<ProductModel> ->
+                        adaptadorrecivido = ProductAdapter(produs)
+                        recyclerViewProduct.adapter = adaptadorrecivido
+                        adaptadorrecivido.onItemClick = {
+                            val action =
+                                CategoryFragmentDirections.actionCategoryFragmentToProductDetailsFragment(
+                                    it
+                                )
+                            nav.navigate(action)
+                        }
+                    }, entero)
+
+                }
+
+
+            } // to close the onItemSelected
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                getProductData { produs: List<ProductModel> ->
+                    recyclerViewProduct.adapter = ProductAdapter(produs)
+                }
+            }
+        }
+
+    }
 
     companion object {
         /**

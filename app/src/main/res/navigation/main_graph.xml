@@ -15,7 +15,11 @@
         android:name="pe.com.ecommers.CategoryFragment"
         android:background="@drawable/ic_pro_frag_bg_category"
         android:label="category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/aboutUsFragment"
@@ -28,9 +32,16 @@
         android:name="pe.com.ecommers.MapFragment"
         android:label="Map"
         tools:layout="@layout/fragment_map" />
-    <activity
-        android:id="@+id/mainActivity3"
-        android:name="pe.com.ecommers.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="pe.com.ecommers.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" >
+        <action
+            android:id="@+id/action_productDetailsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <argument
+            android:name="product"
+            app:argType="pe.com.ecommers.ProductModel" />
+    </fragment>
 </navigation>

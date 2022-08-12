@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="@color/background_navbar">
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/imgproduct"
             android:layout_width="match_parent"
             android:layout_height="400dp"
 
@@ -31,15 +31,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/imgproduct"
             app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/Lbcantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="80dp"
+                android:text="Cantidad:"
+                android:textColor="#212121"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TXTDESCRIPCION" />
 
             <TextView
                 android:id="@+id/TXTNOMBRE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="28dp"
                 android:text="Name"
                 android:textColor="#212121"
                 android:textSize="20sp"
@@ -51,8 +64,8 @@
                 android:id="@+id/TXTDESCRIPCION"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:text="Aqui va la descripcion"
                 android:textColor="#212121"
                 android:textSize="16sp"
@@ -60,11 +73,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/TXTNOMBRE" />
 
             <TextView
-                android:id="@+id/TXTPRECIO"
+                android:id="@+id/Lbprecio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
                 android:text="Precio:"
                 android:textColor="#212121"
                 android:textSize="24sp"
@@ -72,27 +85,54 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TXTDESCRIPCION" />
 
+            <TextView
+                android:id="@+id/TXTPRECIO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="168dp"
+                android:text="aaa"
+                android:textColor="#212121"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Lbprecio" />
+
             <EditText
                 android:id="@+id/EDTCANTIDAD"
                 android:layout_width="57dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="36dp"
                 android:ems="10"
                 android:inputType="number"
+                android:maxEms="99"
+                android:minEms="1"
+                android:numeric="integer"
+                android:text="1"
                 android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/TXTPRECIO"
-                app:layout_constraintTop_toBottomOf="@+id/TXTDESCRIPCION" />
+                app:layout_constraintStart_toEndOf="@+id/Lbcantidad"
+                app:layout_constraintTop_toTopOf="@+id/Lbcantidad" />
 
             <Button
-                android:id="@+id/BTNCART"
+                android:id="@+id/BTNBACK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="176dp"
+                android:layout_marginTop="20dp"
+                android:text="Back"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.84"
+                app:layout_constraintStart_toEndOf="@+id/EDTCANTIDAD"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/BTNCART2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="192dp"
                 android:text="Cart"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintHorizontal_bias="0.466"
                 app:layout_constraintStart_toEndOf="@+id/EDTCANTIDAD"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,7 +150,7 @@
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.173"
-            app:layout_constraintStart_toStartOf="@+id/imageView11" />
+            app:layout_constraintStart_toStartOf="@+id/imgproduct" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

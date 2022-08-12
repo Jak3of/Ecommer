@@ -10,6 +10,9 @@ import com.bumptech.glide.Glide
 
 class ProductAdapter (private val products : List<ProductModel>
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+
+    var onItemClick : ((ProductModel) -> Unit)? = null
+
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val productName = view.findViewById<TextView>(R.id.txtproduct_category)
         val productPrice = view.findViewById<TextView>(R.id.txtprice_category)
@@ -31,6 +34,10 @@ class ProductAdapter (private val products : List<ProductModel>
     override fun getItemCount(): Int = products.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+        val product = products[position]
         holder.bindProduct(products.get(position))
+        holder.itemView.setOnClickListener{
+            onItemClick?.invoke(product)
+        }
     }
 }

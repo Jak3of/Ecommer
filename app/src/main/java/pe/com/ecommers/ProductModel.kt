@@ -1,6 +1,10 @@
 package pe.com.ecommers
 
-class ProductModel {
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+class ProductModel : Parcelable{
     val createAt : Long? = null
     val name : String? = null
     val id_category : String? = null
