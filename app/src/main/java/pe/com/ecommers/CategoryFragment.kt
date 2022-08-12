@@ -104,6 +104,7 @@ class CategoryFragment : Fragment() {
         recyclerViewProduct.setHasFixedSize(true)
 
         val nav: NavController = Navigation.findNavController(view)
+
         spn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,

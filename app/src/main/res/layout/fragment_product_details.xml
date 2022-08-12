@@ -38,21 +38,23 @@
                 android:id="@+id/Lbcantidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="80dp"
-                android:text="Cantidad:"
+                android:text="Cantidad: -"
                 android:textColor="#212121"
                 android:textSize="24sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.135"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TXTDESCRIPCION" />
+                app:layout_constraintTop_toBottomOf="@+id/Lbprecio"
+                app:layout_constraintVertical_bias="0.319" />
 
             <TextView
                 android:id="@+id/TXTNOMBRE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="16dp"
                 android:text="Name"
                 android:textColor="#212121"
                 android:textSize="20sp"
@@ -62,13 +64,14 @@
 
             <TextView
                 android:id="@+id/TXTDESCRIPCION"
-                android:layout_width="wrap_content"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="Aqui va la descripcion"
+                android:textStyle="italic"
                 android:textColor="#212121"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TXTNOMBRE" />
 
@@ -89,50 +92,35 @@
                 android:id="@+id/TXTPRECIO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="168dp"
+                android:layout_marginStart="28dp"
                 android:text="aaa"
                 android:textColor="#212121"
                 android:textSize="24sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Lbprecio"
                 app:layout_constraintTop_toTopOf="@+id/Lbprecio" />
 
-            <EditText
+            <NumberPicker
                 android:id="@+id/EDTCANTIDAD"
-                android:layout_width="57dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="36dp"
-                android:ems="10"
-                android:inputType="number"
-                android:maxEms="99"
-                android:minEms="1"
-                android:numeric="integer"
-                android:text="1"
-                android:textSize="24sp"
-                app:layout_constraintStart_toEndOf="@+id/Lbcantidad"
-                app:layout_constraintTop_toTopOf="@+id/Lbcantidad" />
+                android:layout_width="64dp"
+                android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/BTNBACK"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Back"
-                android:textSize="16sp"
+                android:descendantFocusability="blocksDescendants"
+                app:layout_constraintBottom_toBottomOf="@+id/Lbcantidad"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.84"
-                app:layout_constraintStart_toEndOf="@+id/EDTCANTIDAD"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.302"
+                app:layout_constraintStart_toStartOf="@+id/Lbcantidad"
+                app:layout_constraintTop_toTopOf="@+id/Lbcantidad" />
 
             <Button
                 android:id="@+id/BTNCART2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="192dp"
-                android:text="Cart"
+                android:layout_marginTop="208dp"
+                android:text="Add Cart"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintHorizontal_bias="0.785"
                 app:layout_constraintStart_toEndOf="@+id/EDTCANTIDAD"
                 app:layout_constraintTop_toTopOf="parent" />
 

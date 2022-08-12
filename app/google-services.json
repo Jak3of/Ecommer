@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "628711631720",
+    "project_id": "fir-ecommers-131dd",
+    "storage_bucket": "fir-ecommers-131dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628711631720:android:b085bdb8443c61f9eec4dd",
+        "android_client_info": {
+          "package_name": "pe.com.ecommers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628711631720-bg7vfb6tg2rkpmmprjh2kn0qh3t994au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWtKduwdStqYWJ6jf1ulhi9b43vWei5yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628711631720-bg7vfb6tg2rkpmmprjh2kn0qh3t994au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
