@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         drawerLayout = findViewById(R.id.drawer_layout)
 
-        appBarConfiguration =AppBarConfiguration(setOf(R.id.homeFragment,R.id.categoryFragment,R.id.aboutUsFragment,R.id.mapFragment),drawerLayout)
+        appBarConfiguration =AppBarConfiguration(setOf(R.id.homeFragment,R.id.categoryFragment,R.id.aboutUsFragment,R.id.mapFragment,R.id.authFragment,R.id.profileFragment),drawerLayout)
 
 
         toolbar.setupWithNavController(navController, appBarConfiguration)

@@ -38,6 +38,7 @@ class ProductAdapter (private val products : List<ProductModel>
         holder.bindProduct(products.get(position))
         holder.itemView.setOnClickListener{
             onItemClick?.invoke(product)
+
         }
     }
 }

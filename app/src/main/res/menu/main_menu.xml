@@ -13,6 +13,11 @@
         android:background="@drawable/ic_pro_frag_bg_category"
         />
     <item
+        android:icon="@drawable/ic_baseline_contact_support_24"
+        android:id="@+id/authFragment"
+        android:title="Profile"
+        />
+    <item
         android:icon="@drawable/ic_baseline_map_24"
         android:id="@+id/mapFragment"
         android:title="Locate Us"
@@ -22,4 +27,5 @@
         android:id="@+id/aboutUsFragment"
         android:title="About Us"
         />
+
 </menu>
