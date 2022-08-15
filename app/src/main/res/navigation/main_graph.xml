@@ -44,4 +44,30 @@
             android:name="product"
             app:argType="pe.com.ecommers.ProductModel" />
     </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="pe.com.ecommers.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="pe.com.ecommers.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_authFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="pe.com.ecommers.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_authFragment"
+            app:destination="@id/authFragment" />
+        <argument
+            android:name="user"
+            app:argType="pe.com.ecommers.UserModel" />
+    </fragment>
 </navigation>
