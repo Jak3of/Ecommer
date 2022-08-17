@@ -28,11 +28,6 @@
         tools:layout="@layout/fragment_about_us" />
 
     <fragment
-        android:id="@+id/mapFragment"
-        android:name="pe.com.ecommers.MapFragment"
-        android:label="Map"
-        tools:layout="@layout/fragment_map" />
-    <fragment
         android:id="@+id/productDetailsFragment"
         android:name="pe.com.ecommers.ProductDetailsFragment"
         android:label="fragment_product_details"
@@ -44,11 +39,6 @@
             android:name="product"
             app:argType="pe.com.ecommers.ProductModel" />
     </fragment>
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="pe.com.ecommers.CartFragment"
-        android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/authFragment"
         android:name="pe.com.ecommers.AuthFragment"

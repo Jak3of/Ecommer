@@ -1,18 +1,17 @@
 package pe.com.ecommers
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.NumberPicker
-import android.widget.TextView
+import android.widget.*
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +29,8 @@ class ProductDetailsFragment : Fragment() {
     private var param2: String? = null
 
     private val  args: ProductDetailsFragmentArgs by navArgs()
+
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +73,18 @@ class ProductDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val nav: NavController = Navigation.findNavController(view)
+
+        val prefs = this.activity?.getSharedPreferences(getString(R.string.pref_file), Context.MODE_PRIVATE)
+        val email =prefs?.getString("email",null)
+        val provider = prefs?.getString("provider",null)
+        val addcart = view.findViewById<Button>(R.id.BTNCART2)
+        val amount= view.findViewById<NumberPicker>(R.id.EDTCANTIDAD)
+
+
+
+
+
+
 
     }
 
