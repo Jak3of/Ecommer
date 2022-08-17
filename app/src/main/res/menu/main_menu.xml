@@ -9,11 +9,11 @@
     <item
         android:icon="@drawable/ic_baseline_category_24"
         android:id="@+id/categoryFragment"
-        android:title="Category"
+        android:title="Products"
         android:background="@drawable/ic_pro_frag_bg_category"
         />
     <item
-        android:icon="@drawable/ic_baseline_contact_support_24"
+        android:icon="@drawable/ic_baseline_person_24"
         android:id="@+id/authFragment"
         android:title="Profile"
         />
