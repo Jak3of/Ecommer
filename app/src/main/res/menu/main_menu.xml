@@ -17,11 +17,7 @@
         android:id="@+id/authFragment"
         android:title="Profile"
         />
-    <item
-        android:icon="@drawable/ic_baseline_map_24"
-        android:id="@+id/mapFragment"
-        android:title="Locate Us"
-        />
+
     <item
         android:icon="@drawable/ic_baseline_contact_support_24"
         android:id="@+id/aboutUsFragment"
