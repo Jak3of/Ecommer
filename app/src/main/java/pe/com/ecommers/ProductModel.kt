@@ -6,10 +6,10 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class ProductModel : Parcelable{
     val createAt : Long? = null
-    val name : String? = null
+    var name : String? = null
     val id_category : String? = null
-    val image : String? = null
+    var image : String? = null
     val description : String? = null
-    val price : String? = null
-    val id : String? = null
+    var price : String? = null
+    var id : String? = null
 }

@@ -2,16 +2,24 @@ package pe.com.ecommers
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +36,8 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val  args: ProfileFragmentArgs by navArgs()
+
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +77,70 @@ class ProfileFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewCart = view.findViewById<RecyclerView>(R.id.recicly_viewcar)
+        recyclerViewCart.layoutManager = LinearLayoutManager(context)
+        recyclerViewCart.setHasFixedSize(true)
+        val prefs = this.activity?.getSharedPreferences(getString(R.string.pref_file), Context.MODE_PRIVATE)
+        val email: String? =prefs?.getString("email",null)
+        val provider = prefs?.getString("provider",null)
+
+        if (email!=null&& provider!=null ){
+            val dbCart = db.collection("user").document(email).collection("cart")
+
+
+
+            dbCart.get().addOnCompleteListener(object: OnCompleteListener<QuerySnapshot> {
+                override fun onComplete(p0: Task<QuerySnapshot>) {
+                    if(p0.isSuccessful){
+                        val listm: MutableList<String> = ArrayList()
+                        val productcategory: MutableList<Productcart> = arrayListOf()
+
+
+                        for (document in p0.result) {
+                            var product = Productcart()
+                            var products= ProductModel()
+                            product.product = products
+                            product.product?.id = document.id
+                            product.product?.name = document.get("name") as String?
+                            product.product?.price = document.get("price") as String?
+                            product.product?.image = document.get("image") as String?
+                            product.amount =document.get("amount") as Long?
+                            productcategory.add(product)
+                        }
+                        val list: List<Productcart> =productcategory.toList()
+                        val adaptadorcart = ProductCartAdapter(list)
+                        adaptadorcart.onbuttonClick={
+                            dbCart.document(it.product?.id.toString()).delete()
+
+                        }
+                        recyclerViewCart.adapter = adaptadorcart
+
+                        Log.d("huella", list.toString())
+                    } else {
+                        Log.d("huella", "Error en obtener documentos", p0.exception)
+                    }
+                }
+            })
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+    private fun agregardatos(){
+
     }
 
 

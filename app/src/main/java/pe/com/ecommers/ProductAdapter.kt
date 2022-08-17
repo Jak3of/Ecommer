@@ -14,9 +14,10 @@ class ProductAdapter (private val products : List<ProductModel>
     var onItemClick : ((ProductModel) -> Unit)? = null
 
     class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val productName = view.findViewById<TextView>(R.id.txtproduct_category)
-        val productPrice = view.findViewById<TextView>(R.id.txtprice_category)
-        val productImage = view.findViewById<ImageView>(R.id.imageviewpro)
+        val productName = view.findViewById<TextView>(R.id.txtproduct)
+        val productPrice = view.findViewById<TextView>(R.id.txtprice)
+        val productImage = view.findViewById<ImageView>(R.id.imageproduct)
+
 
         fun bindProduct(product: ProductModel){
             productName.text = product.name

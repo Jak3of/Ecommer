@@ -2,6 +2,7 @@ package pe.com.ecommers
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
@@ -80,7 +82,46 @@ class ProductDetailsFragment : Fragment() {
         val addcart = view.findViewById<Button>(R.id.BTNCART2)
         val amount= view.findViewById<NumberPicker>(R.id.EDTCANTIDAD)
 
+        addcart.setOnClickListener {
+            if (email!=null&& provider!=null ){
+                val product = args.product
+                var user :UserModel= UserModel()
+                user.email = email
+                user.provider = provider
+                val dbCart = db.collection("user").document(email).collection("cart").document(product.id.toString())
 
+
+
+
+                dbCart.update("amount" ,FieldValue.increment(amount.value.toLong()))
+                    .addOnSuccessListener {
+                        var dbamount :Long = 0
+                        dbCart.get().addOnSuccessListener {
+                            dbamount = it.get("amount") as Long
+                            Toast.makeText(context, "a aumentado a $dbamount", Toast.LENGTH_SHORT).show()
+                        }
+
+
+
+                }.addOnFailureListener {
+                    dbCart.set(
+                        hashMapOf(
+                            "name" to product.name.toString(),
+                            "id_category" to product.id_category,
+                            "image" to product.image.toString(),
+                            "description" to product.description.toString(),
+                            "price" to product.price.toString(),
+                            "amount" to amount.value
+                        ))
+                    Toast.makeText(context, "se a agregado ${product.name}", Toast.LENGTH_SHORT).show()
+                }
+
+
+
+            } else{
+                Toast.makeText(context, "Primero debe ingresar a una cuenta", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
 
